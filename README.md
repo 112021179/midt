@@ -22,6 +22,7 @@ pip install -r requirements.txt
 - **yfinance**: Used for fetching stock data.
 - **matplotlib**: For plotting stock data.
 - **pandas**: For data manipulation and analysis.
+- **fuzzywuzzy**: For fuzzy stock symbol search.
 
 You can install these dependencies directly using:
 
