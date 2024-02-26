@@ -27,7 +27,7 @@ def fetch_stock_data(symbol):
         
         # for now no checks on user input, i dont care 
         # Want to see this ^^ implemented in the gui version as buttons or dropdowns
-        data = yf.download(symbol, period=default_period, interval=default_interval)
+        data = yf.download(symbol, period=user_period, interval=user_interval)
         data.to_csv(f'{symbol}_stock_data.csv')
         print(f"Stock data saved to: {os.path.abspath(f'{symbol}_stock_data.csv')}")
  
@@ -105,6 +105,7 @@ check_stock_symbol(symbol, valid_symbols)
 if os.path.exists(f'{symbol}_stock_data.csv'):
     
     if input(f"Stock data for {symbol} already exists. Do you want to fetch new data? (y/n): ").lower() == 'y':
+        os.remove(f'{symbol}_stock_data.csv')
         fetch_stock_data(symbol)
         
 else:
