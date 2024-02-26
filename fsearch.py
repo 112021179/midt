@@ -15,3 +15,5 @@ def find_similar_symbols(symbol, valid_symbols):
     similarity_scores = {s: fuzz.ratio(symbol.upper(), s.upper()) for s in valid_symbols}
     best_matches = sorted(similarity_scores.items(), key=lambda item: item[1], reverse=True)[:5]
     return best_matches
+
+print(find_similar_symbols("apple", load_valid_symbols('screener.csv')))
